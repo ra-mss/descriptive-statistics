@@ -88,3 +88,15 @@ hist(base$CUERDA.ALAR, col = c("white", "black"),
 title(main = "Cuerda alar", xlab = "Cuerda alar (mm)", ylab = "Frecuencia relativa")
 lines(density(base$CUERDA.ALAR, na.rm=TRUE),lwd=3,col="red")
 
+#Ojivas
+plot(peso$table$cf, main="Peso", type = "l", xlab="Intervalo de clase", ylab = "Frecuencia acumulada", col= "blue", cex.lab=1, cex.main=1.5, cex.axis=0.8)
+
+plot(peso$table$cf, main="Culmen", type = "l", xlab="Intervalo de clase", ylab = "Frecuencia acumulada", col= "blue", cex.lab=1, cex.main=1.5, cex.axis=0.8)
+
+plot(peso$table$cf, main="Cabeza/Culmen", type = "l", xlab="Intervalo de clase", ylab = "Frecuencia acumulada", col= "blue", cex.lab=1, cex.main=1.5, cex.axis=0.8)
+
+plot(peso$table$cf, main="Tarso", type = "l", xlab="Intervalo de clase", ylab = "Frecuencia acumulada", col= "blue", cex.lab=1, cex.main=1.5, cex.axis=0.8)
+
+plot(peso$table$cf, main="Cuerda alar", type = "l", xlab="Intervalo de clase", ylab = "Frecuencia acumulada", col= "blue", cex.lab=1, cex.main=1.5, cex.axis=0.8)
+
+
