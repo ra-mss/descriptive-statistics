@@ -56,3 +56,35 @@ write.xlsx(culmen[["table"]], "C:/Users/rpmai/Desktop/TablasFrec.xlsx", sheetNam
 write.xlsx(cabeza[["table"]], "C:/Users/rpmai/Desktop/TablasFrec.xlsx", sheetName = "CabezaCulmen", col.names = TRUE, row.names = FALSE, showNA = TRUE, append = TRUE)
 write.xlsx(tarso[["table"]], "C:/Users/rpmai/Desktop/TablasFrec.xlsx", sheetName = "Tarso", col.names = TRUE, row.names = FALSE, showNA = TRUE, append = TRUE)
 write.xlsx(cuerdaAlar[["table"]], "C:/Users/rpmai/Desktop/TablasFrec.xlsx", sheetName = "Cuerda alar", col.names = TRUE, row.names = FALSE, showNA = TRUE, append = TRUE)
+
+#Histogramas de frecuencia
+hist(base$PESO, col = c("white", "black"), 
+     border = "black", cex.lab=1, cex.main=1.5, 
+     cex.axis=0.8,freq = FALSE, ann = FALSE)
+title(main = "Peso", xlab = "Valores de peso (g)", ylab = "Frecuencia relativa")
+lines(density(base$PESO, na.rm=TRUE),lwd=3,col="red")
+
+hist(base$CULMEN, col = c("white", "black"), 
+     border = "black", cex.lab=1, cex.main=1.5, 
+     cex.axis=0.8,freq = FALSE, ann = FALSE)
+title(main = "Culmen", xlab = "Culmen (mm)", ylab = "Frecuencia relativa")
+lines(density(base$CULMEN, na.rm=TRUE),lwd=3,col="red")
+
+hist(base$`CAB/CUL`, col = c("white", "black"), 
+     border = "black", cex.lab=1, cex.main=1.5, 
+     cex.axis=0.8,freq = FALSE, ann = FALSE)
+title(main = "Cabeza/Culmen", xlab = "Cabeza/Culmen (mm)", ylab = "Frecuencia relativa")
+lines(density(base$`CAB/CUL`, na.rm=TRUE),lwd=3,col="red")
+
+hist(base$TARSO, col = c("white", "black"), 
+     border = "black", cex.lab=1, cex.main=1.5, 
+     cex.axis=0.8,freq = FALSE, ann = FALSE)
+title(main = "Tarso", xlab = "Tarso (mm)", ylab = "Frecuencia relativa")
+lines(density(base$TARSO, na.rm=TRUE),lwd=3,col="red")
+
+hist(base$CUERDA.ALAR, col = c("white", "black"), 
+     border = "black", cex.lab=1, cex.main=1.5, 
+     cex.axis=0.8,freq = FALSE, ann = FALSE)
+title(main = "Cuerda alar", xlab = "Cuerda alar (mm)", ylab = "Frecuencia relativa")
+lines(density(base$CUERDA.ALAR, na.rm=TRUE),lwd=3,col="red")
+
