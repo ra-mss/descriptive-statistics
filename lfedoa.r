@@ -42,3 +42,17 @@ row.names(STATS) = c("Peso (g)",
 #Genera un archivo de excel  con la tabla de medidas estadisticas
 Estadisticos <- t(STATS) %>% 
   write.xlsx2("../ra-mss/Desktop/R_Projects/LIMOSAFEDOA/Estadisticos.xlsx", sheetName = "L. fedoa", col.names = TRUE, row.names = TRUE, showNA = TRUE)
+
+#Tablas de frecuencia (Sturges)
+peso <- fdth::fdt(base$PESO, breaks=c("Sturges"), na.rm=TRUE)
+culmen <- fdth::fdt(base$CULMEN, breaks=c("Sturges"), na.rm=TRUE)
+cabeza <- fdth::fdt(base$`CAB/CUL`, breaks=c("Sturges"), na.rm=TRUE)
+tarso <- fdth::fdt(base$TARSO, breaks=c("Sturges"), na.rm=TRUE)
+cuerdaAlar <- fdth::fdt(base$CUERDA.ALAR, breaks=c("Sturges"), na.rm=TRUE)
+
+#Tablas de frecuencia a .xlsx
+write.xlsx(peso[["table"]], "C:/Users/rpmai/Desktop/TablasFrec.xlsx", sheetName = "Peso", col.names = TRUE, row.names = FALSE, showNA = TRUE)
+write.xlsx(culmen[["table"]], "C:/Users/rpmai/Desktop/TablasFrec.xlsx", sheetName = "Culmen", col.names = TRUE, row.names = FALSE, showNA = TRUE, append = TRUE)
+write.xlsx(cabeza[["table"]], "C:/Users/rpmai/Desktop/TablasFrec.xlsx", sheetName = "CabezaCulmen", col.names = TRUE, row.names = FALSE, showNA = TRUE, append = TRUE)
+write.xlsx(tarso[["table"]], "C:/Users/rpmai/Desktop/TablasFrec.xlsx", sheetName = "Tarso", col.names = TRUE, row.names = FALSE, showNA = TRUE, append = TRUE)
+write.xlsx(cuerdaAlar[["table"]], "C:/Users/rpmai/Desktop/TablasFrec.xlsx", sheetName = "Cuerda alar", col.names = TRUE, row.names = FALSE, showNA = TRUE, append = TRUE)
