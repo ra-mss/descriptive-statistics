@@ -21,3 +21,24 @@ CoefVarCa <- round(100*sd(base$`CAB/CUL`,na.rm=TRUE)/mean(base$`CAB/CUL`,na.rm=T
 CoefVarT <- round(100*sd(base$TARSO,na.rm=TRUE)/mean(base$TARSO,na.rm=TRUE), digits = 3)
 CoefVarCuA <- round(100*sd(base$CUERDA.ALAR,na.rm=TRUE)/mean(base$CUERDA.ALAR,na.rm=TRUE), digits = 3)
 
+#Crear tabla (agrega la columna de CV)
+STATS <- cbind(statistics, c(CoefVarP, CoefVarC, CoefVarCa, CoefVarT, CoefVarCuA))
+
+#Cambiar nombres de columnas y filas
+colnames(STATS) = c("Media",
+                    "Mediana",
+                    "Moda",
+                    "Rango",
+                    "Varianza",
+                    "DesvStd",
+                    "CV")
+
+row.names(STATS) = c("Peso (g)",
+                     "Culmen (mm)",
+                     "Cabeza total (mm)",
+                     "Tarso (mm)",
+                     "Cuerda alar (cm)")
+
+#Genera un archivo de excel  con la tabla de medidas estadisticas
+Estadisticos <- t(STATS) %>% 
+  write.xlsx2("../ra-mss/Desktop/R_Projects/LIMOSAFEDOA/Estadisticos.xlsx", sheetName = "L. fedoa", col.names = TRUE, row.names = TRUE, showNA = TRUE)
