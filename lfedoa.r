@@ -15,3 +15,9 @@ statistics = matrix(c(summarise_all(base, mean, na.rm=TRUE),
                       summarise_all(base, var, na.rm=TRUE),
                       summarise_all(base, sd, na.rm=TRUE)),
                     ncol = 6)
+CoefVarP <- round(100*sd(base$PESO,na.rm=TRUE)/mean(base$PESO,na.rm=TRUE), digits = 3)
+CoefVarC <- round(100*sd(base$CULMEN,na.rm=TRUE)/mean(base$CULMEN,na.rm=TRUE), digits = 3)
+CoefVarCa <- round(100*sd(base$`CAB/CUL`,na.rm=TRUE)/mean(base$`CAB/CUL`,na.rm=TRUE), digits = 3)
+CoefVarT <- round(100*sd(base$TARSO,na.rm=TRUE)/mean(base$TARSO,na.rm=TRUE), digits = 3)
+CoefVarCuA <- round(100*sd(base$CUERDA.ALAR,na.rm=TRUE)/mean(base$CUERDA.ALAR,na.rm=TRUE), digits = 3)
+
